@@ -1,0 +1,24 @@
+{
+  "name": "side2nw",
+  "version": "0.0.1",
+  "description": "Selenium IDE to Nightwatch - Converts exported selenium IDE tests to javascript so they can be run automatically using Nightwatch",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=development ./node_modules/mocha/bin/mocha --reporter min $(find ./test -name '*.js')"
+  },
+  "keywords": [
+    "selenium",
+    "nightwatch"
+  ],
+  "author": "Tim Robinson <tim@timjrobinson.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^1.18.0"
+  },
+  "dependencies": {
+    "glob": "^3.2.9",
+    "commander": "^2.1.0",
+    "async": "^0.2.10",
+    "htmlparser2": "^3.5.1"
+  }
+}

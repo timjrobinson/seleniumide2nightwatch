@@ -1,0 +1,9 @@
+{
+    "open": {
+        "command": "url"
+    },
+    "clickAndWait": {
+        "command": ""
+    }
+}
+
