@@ -1,18 +1,37 @@
+var assert = require('assert');
+var convert = require('../lib/convert');
 
-describe("side2nw", function() {
-    describe("run", function() {
+describe("convert", function() {
+    describe("assertLocation", function() {
+        it("Should convert to url with an assert inside it", function() {
+            assert.equal(convert.assertLocation.parse('test'), 'url(function(url) { assert(url.match(/test/)); })')
+        });
+    });
+    describe("click", function() {
+        it("Should convert to click", function() {
+            assert.equal(convert.click.parse('test'), 'click("test")');
+        });
+    });
+    describe("clickAndWait", function() {
+        it("Should convert to click", function() {
+            assert.equal(convert.clickAndWait.parse('test'), 'click("test")');
+        });
+    });
+    describe("check", function() {
 
     });
-    describe("processFile", function() {
+    describe("open", function() {
 
     });
-    describe("getNewPath", function() {
-
+    describe("type", function() {
+        it("Should convert to setValue", function() {
+            assert.equal(convert.type.parse('selector', 'value'), 'setValue("selector", "value")');
+        });
     });
-    describe("parse", function() {
+    describe("waitForVisible", function() {
+        it("Should convert to waitForElementVisible", function() {
+            assert.equal(convert.waitForVisible.parse('selector'), 'waitForElementVisible("selector", 1000)')
 
-    });
-    describe("convert", function() {
-
+        });
     });
 });
