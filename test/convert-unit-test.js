@@ -1,5 +1,6 @@
 var assert = require('assert');
 var convert = require('../lib/convert');
+var config = require('../lib/config')
 
 describe("convert", function() {
     describe("assertLocation", function() {
@@ -13,8 +14,8 @@ describe("convert", function() {
         });
     });
     describe("clickAndWait", function() {
-        it("Should convert to click", function() {
-            assert.equal(convert.clickAndWait.parse('test'), 'click("test")');
+        it("Should convert to click and pause for config.clickAndWaitTime milliseconds", function() {
+            assert.deepEqual(convert.clickAndWait.parse('test'), ['click("test")', 'pause(' + config.clickAndWaitTime + ')']);
         });
     });
     describe("check", function() {

@@ -15,4 +15,7 @@ describe("side2nw", function() {
     describe("convert", function() {
 
     });
+    describe("createCommands", function() {
+
+    });
 });

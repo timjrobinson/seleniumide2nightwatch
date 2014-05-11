@@ -14,4 +14,8 @@ describe("selector convert unit test", function() {
         var selector = ".one &gt; .two";
         assert.equal(selectorConvert(selector), '.one > .two');
     });
+    it("Should add double backslashes escape square brackets in css selectors", function() {
+        var selector = "something[child_one]";
+        assert.equal(selectorConvert(selector), 'something\\\\[child_one\\\\]')
+    });
 });

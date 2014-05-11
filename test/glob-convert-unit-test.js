@@ -12,6 +12,6 @@ describe("globConvert", function() {
     });
     it("Should escape any forwardslashes", function() {
         var glob = "one/two";
-        assert(globConvert(glob) == 'one\/two');
+        assert(globConvert(glob) == 'one\\/two');
     });
 });
