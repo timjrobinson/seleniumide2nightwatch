@@ -16,8 +16,8 @@ describe("selectorUtil unit test", function() {
             assert.equal(selectorUtil.convert(selector), "#subscriberCode");
         });
         it("Should only convert id= at the beginning of a selector", function() {
-            var selector = "form[@id=test]";
-            assert.equal(selectorUtil.convert(selector), "form\\\\[@id=test\\\\]");
+            var selector = "//form[@id=test]";
+            assert.equal(selectorUtil.convert(selector), "//form[@id=test]");
         });
         it("Should convert css selectors correctly", function() {
             var selector = "css=div.section";
@@ -30,6 +30,10 @@ describe("selectorUtil unit test", function() {
         it("Should add double backslashes escape square brackets in css selectors", function() {
             var selector = "something[child_one]";
             assert.equal(selectorUtil.convert(selector), 'something\\\\[child_one\\\\]')
+        });
+        it("Should not escape square brackets in xpath selectors", function() {
+            var selector = "//something[child_one]";
+            assert.equal(selectorUtil.convert(selector), '//something[child_one]')
         });
     });
 });
