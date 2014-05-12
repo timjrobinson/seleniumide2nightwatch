@@ -1,6 +1,6 @@
 {
   "name": "side2nw",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Selenium IDE to Nightwatch - Converts exported selenium IDE tests to javascript so they can be run automatically using Nightwatch",
   "main": "index.js",
   "scripts": {
@@ -12,13 +12,14 @@
   ],
   "author": "Tim Robinson <tim@timjrobinson.com>",
   "license": "MIT",
-  "devDependencies": {
-    "mocha": "^1.18.0"
-  },
   "dependencies": {
     "glob": "^3.2.9",
     "commander": "^2.1.0",
     "async": "^0.2.10",
-    "htmlparser2": "^3.5.1"
+    "htmlparser2": "^3.5.1",
+    "minimatch": "^0.2.14"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.0"
   }
 }

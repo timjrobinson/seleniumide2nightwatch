@@ -1,11 +1,12 @@
 var assert = require('assert');
 var convert = require('../lib/convert');
-var config = require('../lib/config')
+var minimatch = require('minimatch');
+var config = require('../lib/config');
 
 describe("convert", function() {
     describe("assertLocation", function() {
         it("Should convert to url with an assert inside it", function() {
-            assert.equal(convert.assertLocation.parse('test'), 'url(function(url) { assert(url.match(/test/)); })')
+            assert.equal(convert.assertLocation.parse('test'), 'url(function(url) { assert(url.match(' + minimatch.makeRe('test') + ')); })')
         });
     });
     describe("click", function() {
