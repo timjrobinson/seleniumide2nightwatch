@@ -15,6 +15,10 @@ describe("selectorUtil unit test", function() {
             var selector = "id=subscriberCode";
             assert.equal(selectorUtil.convert(selector), "#subscriberCode");
         });
+        it("Should only convert id= at the beginning of a selector", function() {
+            var selector = "form[@id=test]";
+            assert.equal(selectorUtil.convert(selector), "form\\\\[@id=test\\\\]");
+        });
         it("Should convert css selectors correctly", function() {
             var selector = "css=div.section";
             assert.equal(selectorUtil.convert(selector), 'div.section');

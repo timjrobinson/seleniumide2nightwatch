@@ -11,12 +11,12 @@ describe("convert", function() {
     });
     describe("click", function() {
         it("Should convert to click", function() {
-            assert.equal(convert.click.parse('test'), 'click("test")');
+            assert.deepEqual(convert.click.parse('test'), ['useCss()', 'click("test")']);
         });
     });
     describe("clickAndWait", function() {
         it("Should convert to click and pause for config.clickAndWaitTime milliseconds", function() {
-            assert.deepEqual(convert.clickAndWait.parse('test'), ['click("test")', 'pause(' + config.clickAndWaitTime + ')']);
+            assert.deepEqual(convert.clickAndWait.parse('test'), ['useCss()', 'click("test")', 'pause(' + config.clickAndWaitTime + ')']);
         });
     });
     describe("check", function() {
@@ -27,12 +27,12 @@ describe("convert", function() {
     });
     describe("type", function() {
         it("Should convert to setValue", function() {
-            assert.equal(convert.type.parse('selector', 'value'), 'setValue("selector", "value")');
+            assert.deepEqual(convert.type.parse('selector', 'value'), ['useCss()', 'setValue("selector", "value")']);
         });
     });
     describe("waitForVisible", function() {
         it("Should convert to waitForElementVisible", function() {
-            assert.equal(convert.waitForVisible.parse('selector'), 'waitForElementVisible("selector", 1000)')
+            assert.deepEqual(convert.waitForVisible.parse('selector'), ['useCss()', 'waitForElementVisible("selector", 1000)']);
 
         });
     });
