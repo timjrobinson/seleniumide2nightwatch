@@ -1,8 +1,9 @@
 {
   "name": "side2nw",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Selenium IDE to Nightwatch - Converts exported selenium IDE tests to javascript so they can be run automatically using Nightwatch",
   "main": "index.js",
+  "bin": "./bin/side2nw",
   "scripts": {
     "test": "NODE_ENV=development ./node_modules/mocha/bin/mocha --reporter min $(find ./test -name '*.js')"
   },
