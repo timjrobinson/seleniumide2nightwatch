@@ -1,6 +1,6 @@
 {
   "name": "side2nw",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Selenium IDE to Nightwatch - Converts exported selenium IDE tests to javascript so they can be run automatically using Nightwatch",
   "main": "index.js",
   "bin": "./bin/side2nw",
