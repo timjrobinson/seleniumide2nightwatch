@@ -3,11 +3,16 @@ var selectorUtil = require('../lib/selector-util');
 
 describe("selectorUtil unit test", function() {
     describe("type", function() {
-        it("Should return css for css selectors", function() {
+        it("Should return css for css selectors or selectors that can be converted to css", function() {
             assert.equal(selectorUtil.type("#itemName"), "css");
+            assert.equal(selectorUtil.type("css="), "css");
+            assert.equal(selectorUtil.type("id="), "css");
         });
         it("Should return xpath for xpath selectors", function() {
             assert.equal(selectorUtil.type("//form[@id='booking-form']/div[2]/div/button"), "xpath");
+        });
+        it("Should return link for link selectors", function() {
+            assert.equal(selectorUtil.type("link="), "link")
         });
     });
     describe("convert", function() {
@@ -35,5 +40,13 @@ describe("selectorUtil unit test", function() {
             var selector = "//something[child_one]";
             assert.equal(selectorUtil.convert(selector), '//something[child_one]')
         });
+        it("Should convert link selectors to an xpath of link text", function() {
+            var selector = "link=Subscribe";
+            assert.equal(selectorUtil.convert(selector), "//a[text()='Subscribe']");
+        })
+        it("Should convert link selectors with spaces in them to an xpath of link text", function() {
+            var selector = "link=Subscribe Here";
+            assert.equal(selectorUtil.convert(selector), "//a[text()='Subscribe Here']");
+        })
     });
 });
